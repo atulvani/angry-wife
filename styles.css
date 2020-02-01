@@ -1,0 +1,79 @@
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+  background: black;
+  margin: 0;
+}
+.arsenal {
+  bottom: -120px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+.arsenal > .husband,
+.arsenal > .wife {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.attack {
+    animation: spin .25s linear infinite;
+    position: absolute;
+}
+.health {
+  display: flex;
+  justify-content: space-evenly;
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: -35px;
+  width: 100%;
+}
+.health > .husband,
+.health > .wife {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  height: 100%;
+  width: 100px;
+}
+.health > .husband > div,
+.health > .wife > div {
+  height: 100%;
+}
+.player {
+  position: absolute;
+  opacity: 0.8;
+}
+.studio {
+  background: url(./images/bg.png);
+  position: relative;
+}
+.weapon-location {
+  align-items: center;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 3px;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  position: absolute;
+  width: 20px;
+}
+.wrapper {
+  align-items: center;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+}
