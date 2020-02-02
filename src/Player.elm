@@ -14,8 +14,6 @@ type alias Player_ =
     , target : Maybe Target
     , energy : Energy
     , health : Health
-
-    -- TODO: make anger decrease hitProbability but increase damage
     , isAngry : Bool
     , arsenal : Arsenal
     , stash : Stash

@@ -129,7 +129,6 @@ updateModel message model =
                         weapon == w && victimPlayerType == vpt && areEtasSame e eta
 
                 updatedAttackPosList =
-                    -- TODO: make attacks hit on head rather than chest
                     model.attackPosList
                         |> List.map (\({ eta } as attackPos) -> { attackPos | eta = decEta eta })
                         |> List.filter (\{ eta } -> not (isEtaZero eta))
@@ -517,11 +516,6 @@ unisexWeaponModelList =
     , { weapon = makeWeapon "iron.svg" 5 True False, weaponLocations = cupboardWeaponLocations ++ storageShelfWeaponLocations }
     , { weapon = makeWeapon "vase.svg" 5 True False, weaponLocations = openShelfWeaponLocations }
     , { weapon = makeWeapon "flowerPot.svg" 5 True False, weaponLocations = openShelfWeaponLocations }
-
-    -- TODO: introduce defenses (nonThrowableWeapons) like: chair, helmet, umbrella, pillow
-    --
-    -- TODO: introduce vicious weapons like: farting (using canned beans), stripping (using waxing kit)
-    -- the effects should go away with time
     ]
 
 
@@ -646,7 +640,6 @@ getWeaponLocationView ( pt, st, position ) =
             ifThenElse (pt == husbandType) "#336" "#633"
 
         shortcut =
-            -- TODO: put shortcuts in a central place
             if pt == husbandType && st == stashSlotType1 then
                 "K"
 
@@ -724,7 +717,6 @@ getArsenalView { game } =
     in
     div
         [ class "arsenal" ]
-        -- TODO: put shortcuts in a central place
         [ ul
             [ class "wife" ]
             [ render wifeType arsenalSlotType1 "Q"
@@ -751,7 +743,6 @@ getPlayerHealthView { game } =
     div
         [ class "health" ]
         [ div
-            -- "#99f" "#f9f"
             [ class "wife", style "background" "#636" ]
             [ div [ style "background" "#f9f", style "width" (String.fromFloat wifeHealth ++ "%") ] [] ]
         , div
@@ -762,7 +753,6 @@ getPlayerHealthView { game } =
 
 getAttacksView : Model -> Html Msg
 getAttacksView { attackPosList } =
-    -- TODO: make weapons render in different sizes based on their size in the real world
     let
         getWeaponImg =
             \weapon ->

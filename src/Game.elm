@@ -202,13 +202,11 @@ updateOnGoingAttacks ({ husband, wife, onGoingAttacks } as game) =
         newHusband =
             finishedAttacks
                 |> List.filter (Attack.isOnPlayerType husbandType)
-                -- TODO: introduce hitProbability when making it online to make operation transformation easy
                 |> List.foldl (\_ p -> Player.reduceHealth p) husband
 
         newWife =
             finishedAttacks
                 |> List.filter (Attack.isOnPlayerType wifeType)
-                -- TODO: make health loss depend on weapon weight, hardness and sharpness
                 |> List.foldl (\_ p -> Player.reduceHealth p) wife
     in
     { game | husband = newHusband, wife = newWife, onGoingAttacks = newOnGoingAttacks }

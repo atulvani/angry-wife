@@ -3,7 +3,6 @@ module Weapon exposing (Weapon(..), getWeaponName, makeWeapon)
 
 type Weapon
     = Weapon
-        -- TODO: introduce player stamina/energy comcept base on weapon weight
         { weight : Float
         , isHard : Bool
         , isSharp : Bool
